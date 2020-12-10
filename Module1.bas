@@ -51,9 +51,9 @@ End If
 If col = 6 Then
     col = col + 2
     If Mid(cel.Value, 8, 1) = "1" Then
-        Cells(erow, col) = "¯y³a 1"
+        Cells(erow, col) = "Strand 1"
     Else
-        Cells(erow, col) = "¯y³a 2"
+        Cells(erow, col) = "Strand 2"
     End If
     col = col - 1
 End If
@@ -65,6 +65,18 @@ If col = 7 Then
 Else
     col = col + 1
 End If
+Next
+
+Set wsToCopy = Workbooks.Open(path & myFile).Sheets("Informacje g³ówne- General Inf")
+
+Set rangeOne = wsToCopy.Range("C16")
+
+Windows("MakroForSliverDB.xlsm").Activate
+
+For Each cel In rangeOne
+cel.Copy
+Cells(erow, col).PasteSpecial xlPasteValues
+col = col + 1
 Next
 
 Windows(myFile).Close savechanges:=False
