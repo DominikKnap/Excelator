@@ -15,7 +15,7 @@ Dim i As Integer
 path = ThisWorkbook.path & "\Files\"
 myFile = Dir(path & "*.xlsm")
 
-Set wsToPaste = Workbooks("MakroChemia.xlsm").Sheets("Master")
+Set wsToPaste = Workbooks("MacroChemistry.xlsm").Sheets("Master")
 
 Application.ScreenUpdating = False
 
@@ -28,7 +28,7 @@ For i = 22 To MyRange.Rows.Count Step 2
 Set RowSelect = Union(RowSelect, MyRange.Rows(i))
 Next i
 
-Windows("MakroChemia.xlsm").Activate
+Windows("MacroChemistry.xlsm").Activate
 
 erow = Cells(Rows.Count, 1).End(xlUp).Offset(1, 0).Row
 col = 1
